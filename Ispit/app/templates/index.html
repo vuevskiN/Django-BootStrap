@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for book in books %}
+<p>{{book.title}}</p>
+<p>{{book.description}}</p>
+<p>{{book.price}}</p>
+<img src="/media/{{book.image}}">
+{% for author in book.authors.all %}
+<p>{{author.name}}</p>
+{% endfor %}
+<a href="{% url 'edit' book.id %}">Edit</a>
+<a href="{% url 'delete' book.id %}">delete</a>
+{% endfor %}
+</body>
+</html>
